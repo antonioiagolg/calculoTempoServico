@@ -33,8 +33,8 @@ module.controller('TempoServicoCrtl', ['$scope', 'moment', function($scope, mome
     $scope.form.dataFim = moment(new Date(), "YYYY-MM-DD").toDate();
     $scope.form.dataInicio = '';
 
-    $scope.diferenca = "";
-    $scope.diferencaDias = "";
+    $scope.diferenca = "Aguardando";
+    $scope.diferencaDias = "Aguardando";
     $scope.hasResultado = false;
   
     var fraseDiferenca = function(diferenca) {
