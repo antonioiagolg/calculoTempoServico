@@ -33,7 +33,9 @@ module.controller('TempoServicoCrtl', ['$scope', 'moment', function($scope, mome
     $scope.form.dataFim = moment(new Date(), "YYYY-MM-DD").toDate();
     $scope.form.dataInicio = '';
 
-    $scope.diferenca = "Aguardando datas";
+    $scope.diferenca = "";
+    $scope.diferencaDias = "";
+    $scope.hasResultado = false;
   
     var fraseDiferenca = function(diferenca) {
         return (diferenca.years === 0 ? '' : diferenca.years + " anos") +
@@ -42,10 +44,15 @@ module.controller('TempoServicoCrtl', ['$scope', 'moment', function($scope, mome
     }
 
     $scope.calcularTempoServico = function() {
+
         var tempoInicio = moment($scope.form.dataInicio);
         var tempoFim    = moment($scope.form.dataFim);
+
         $scope.diferenca = moment.preciseDiff(tempoInicio, tempoFim, true);
 
+        $scope.diferencaDias = tempoFim.diff(tempoInicio, 'days') + " dia(s).";
         $scope.diferenca = fraseDiferenca($scope.diferenca);
+        $scope.hasResultado = true;
+        
     }
 }]);

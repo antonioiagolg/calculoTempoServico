@@ -12,53 +12,63 @@
     <md-toolbar layout="row" layout-align="center center" class="md-toolbar-tools">
         <h1>Cálculo do tempo de serviço</h1>
     </md-toolbar>
-    <div layout="row" ng-controller="TempoServicoCrtl">
-        <md-content 
-            layout="column" 
-            layout-gt-sm="row" 
-            layout-padding layout-align="center strech" 
-            layout-wrap>
+    <md-content 
+        layout="column"
+        ng-controller="TempoServicoCrtl"
+        layout-xs="column"
+        ng-style="{'max-weight': '400px'}"
+        layout-padding
+        layout-align="center center">
+        <!-- Cartão de cálculo -->
+        <form name="formTempo" novalidate>
             <md-card>
-                <md-card-title-text>
-                    <span class="md-headline">Calcular tempo de serviço</span>
-                </md-card-title-text>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Calcular tempo de serviço</span>
+                    </md-card-title-text>
+                </md-card-title>
                 <md-card-content>
                     <md-input-container flex>
                         <label>Data de início</label>
                         <md-datepicker
-                            flex 
-                            md-open-on-focus 
+                            name="dataInicio"
+                            required
                             ng-model="form.dataInicio"></md-datepicker>
                     </md-input-container>
 
                     <md-input-container flex>
                         <label>Data fim</label>
                         <md-datepicker
-                            md-open-on-focus 
+                            name="dataFim"
+                            required
                             ng-model="form.dataFim"></md-datepicker>
                     </md-input-container>
                 </md-card-content>
-                <md-card-action layout="row" layout-align="end center">
-                        <md-button ng-click="calcularTempoServico()" class="md-raised md-primary">Calcular</md-button>
-                </md-card-action>
+                <md-card-actions layout="row" layout-align="end center">
+                        <md-button 
+                            ng-disabled="formTempo.$invalid"
+                            ng-click="calcularTempoServico()"
+                            class="md-raised md-primary">Calcular</md-button>
+                </md-card-actions>
             </md-card>
-        </md-content>
+        </form>
+        
+        <!-- Cartão de resultados -->
+        <md-card md-colors="{background: 'blue-grey-500'}">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-title">Resultado</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>{{diferenca}}</p>
+                <p>{{diferencaDias}}</p>
+            </md-card-content>
+            <md-card-footer>
 
-        <md-content layout-padding>
-            <md-card md-colors="{background: 'blue-grey-500'}">
-                <md-card-header>
-                    <md-card-header-text>
-                        <span class="md-title">Resultado</span>
-                    </md-card-header-text>
-                </md-card-header>
-                <md-card-content>
-                    <p>
-                        {{diferenca}}
-                    </p>
-                </md-card-content>
-            </md-card>
-        </md-content>
-    </div>
+            </md-card-footer>
+        </md-card>
+    </md-content>
     <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
     <script type="text/javascript" src="node_modules/moment/moment.js"></script>
     <script type="text/javascript" src="node_modules/moment-timezone/moment-timezone.js"></script>
