@@ -14,8 +14,7 @@
     </md-toolbar>
     <md-content 
         ng-controller="TempoServicoCrtl"
-        layout-xs="column"
-        ng-style="{'max-height': '530px'}">
+        layout-xs="column">
         <!-- Cartão de cálculo -->
         <form name="formTempo" novalidate>
             <md-card>
@@ -57,7 +56,7 @@
                     <span class="md-title">Resultado</span>
                 </md-card-header-text>
             </md-card-header>
-            <md-card-content layout-xs="column">
+            <md-card-content layout="column">
                 <p>{{diferenca}}</p>
                 <p>{{diferencaDias}}</p>
             </md-card-content>
