@@ -1,4 +1,4 @@
-var module = angular.module('TempoServicoApp',['ngMaterial', 'angularMoment']);
+var module = angular.module('TempoServicoApp',['ngMaterial', 'angularMoment', 'ui.utils.masks']);
 
 module.config(function($mdDateLocaleProvider) {
     $mdDateLocaleProvider.months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];

@@ -23,21 +23,25 @@
                         <span class="md-title">Calcular tempo de serviço</span>
                     </md-card-header-text>
                 </md-card-header>
-                <md-card-content layout="column">
+                <md-card-content layout="column" layout-padding>
                     <md-input-container flex>
                         <label>Data de início</label>
-                        <md-datepicker
+                        <input
+                            type="text"
                             name="dataInicio"
                             required
-                            ng-model="form.dataInicio"></md-datepicker>
+                            ui-date-mask="DD/MM/YYYY"
+                            ng-model="form.dataInicio"/>
                     </md-input-container>
 
                     <md-input-container flex>
                         <label>Data fim</label>
-                        <md-datepicker
+                        <input
+                            type="text"
                             name="dataFim"
+                            ui-date-mask="DD/MM/YYYY"
                             required
-                            ng-model="form.dataFim"></md-datepicker>
+                            ng-model="form.dataFim"/>
                     </md-input-container>
                 </md-card-content>
                 <md-card-actions layout="row" layout-align="end center">
@@ -70,6 +74,7 @@
     <script type="text/javascript" src="node_modules/angular-aria/angular-aria.min.js"></script>
     <script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
     <script type="text/javascript" src="node_modules/angular-moment/angular-moment.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-input-masks/releases/angular-input-masks-standalone.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
